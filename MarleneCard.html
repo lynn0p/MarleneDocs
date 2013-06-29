@@ -1,0 +1,304 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 3.4.1  (Win32)">
+	<META NAME="CREATED" CONTENT="20130628;17310745">
+	<META NAME="CHANGED" CONTENT="20130628;18393555">
+	<STYLE TYPE="text/css">
+	<!--
+		@page { margin: 0.79in }
+		P { margin-bottom: 0.08in }
+		A:link { so-language: zxx }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<P ALIGN=CENTER STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=CENTER STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=CENTER STYLE="margin-bottom: 0in"><FONT SIZE=7 STYLE="font-size: 32pt">MarleneCard</FONT></P>
+<P ALIGN=CENTER STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=CENTER STYLE="margin-bottom: 0in"><FONT SIZE=3>A BasicCard
+interface to the bitcoin wallet</FONT></P>
+<P ALIGN=CENTER STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=CENTER STYLE="margin-bottom: 0in"><FONT SIZE=3>Owen Lynn</FONT></P>
+<P ALIGN=CENTER STYLE="margin-bottom: 0in"><FONT SIZE=3>&lt;<A HREF="mailto:owen.lynn@gmail.com">owen.lynn@gmail.com</A>&gt;</FONT></P>
+<P ALIGN=CENTER STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=CENTER STYLE="margin-bottom: 0in"><FONT SIZE=3>June 28, 2013</FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><FONT SIZE=5 STYLE="font-size: 20pt">Motivations</FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><FONT SIZE=3>Bitcoin has a
+&ldquo;last mile&rdquo; problem, payment systems are rather clunky to
+use, you need an internet connected smartphone, you need a fair
+amount of technical savvy to set your smartphone up to be able to
+make payments, and the merchant on the other end needs to set up a
+tablet or netbook to output the QR codes that the smartphone needs to
+take pictures of.</FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><FONT SIZE=3>Although
+smartphones are coming down in cost, the bulk of all cellphones that
+are in use today globally are &ldquo;cheap, dumb&rdquo; phones. And
+the majority of the world doesn't enjoy the luxury of a ready
+internet connection wherever they go either.</FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><FONT SIZE=3>Smartcards at
+this time are much cheaper, they can do the same sort of encryption
+that you expect, and they are very light and fit easily in a physical
+wallet. They don't need a battery, and only need to connect to the
+internet upon payment.</FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><FONT SIZE=5 STYLE="font-size: 20pt">Architecture</FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><FONT SIZE=3>The MarleneCard
+payment system consists of four components:</FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+</P>
+<OL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0in"><FONT SIZE=3>A small
+	bridge server, that takes requests from card terminals and
+	translates that into JSON-RPC commands</FONT></P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0in"><FONT SIZE=3>A terminal
+	program, that talks to the card and forwards the communication to
+	the bridge</FONT></P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0in"><FONT SIZE=3>A
+	BasicCard that can encrypt and decrypt commands.</FONT></P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0in"><FONT SIZE=3>An admin
+	program to configure the card before use &ldquo;on the street&rdquo;</FONT></P>
+</OL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><FONT SIZE=3>Here's a
+diagram of how they interact with each other:</FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><IMG SRC="MarleneCard_html_f586a64.gif" ALIGN=LEFT><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><FONT SIZE=5 STYLE="font-size: 20pt">Building
+MarleneCard</FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><FONT SIZE=4 STYLE="font-size: 16pt">Requirements:</FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+</P>
+<OL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0in"><FONT SIZE=3>One
+	computer running a recent version of Windows and another running a
+	recent version Ubuntu. Feel free to run a VM for one or both.</FONT></P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0in"><FONT SIZE=3>A 7.5
+	BasicCard that's at least RevB but RevD is preferred. If you can't
+	find a RevD card, RevB should work fine.</FONT></P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0in"><FONT SIZE=3>A PC/SC
+	reader</FONT></P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0in"><FONT SIZE=3>Qt Creator
+	5.0.2 MSVC 2010 32bit. Do NOT build this using the 2012 64bit
+	version, it will fail to link the Zeitcontrol C++ libraries. There's
+	some bug with how Qt drives the MS linker and I don't have the
+	motivation to figure out what is going wrong. This is important,
+	make sure Qt is set up to build using the 2010 toolchain. You can
+	use the 2012 debugging tools if you wish, but the linker has to be
+	2010.</FONT></P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0in"><FONT SIZE=3>Qt Creator
+	5.0.2 for Linux, feel free to pick a version you like. Build was
+	tested on Ubuntu, other linuces might work, but YMMV</FONT></P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0in"><FONT SIZE=3>Zeitcontrol's
+	C++ terminal library. You want to download the .Net library on their
+	website. You can get it at <A HREF="http://www.basiccard.com/download.htm">http://www.basiccard.com/download.htm</A>
+	 Install the library to the location that it sets as default.</FONT></P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0in"><FONT SIZE=3>Zeitcontrol's
+	BasicCard development software. You should be able to get it at the
+	same location that you got the .Net library they offer.</FONT></P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0in"><FONT SIZE=3>OpenSSL on
+	linux, specifically the -lcrypto library. OpenSSL is also very
+	useful for generating the public/private RSA keypair you'll need for
+	the card and server to understand each other.</FONT></P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0in"><FONT SIZE=3>A recent
+	version of the Bitcoin wallet, installed on the Linux box.</FONT></P>
+	<P ALIGN=LEFT STYLE="margin-bottom: 0in"></P>
+</OL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><FONT SIZE=5>Building the
+packages</FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><FONT SIZE=4 STYLE="font-size: 16pt">Building
+the GUI apps</FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><FONT SIZE=3>MarleneAdmin,
+MarleneLib and MarleneTerminal all need to be built on Windows. In
+theory they can all be ported to work on other platforms, but none of
+that porting work has been done. The Zeitcontrol library specifically
+needs to be replaced. There's an open source version of that library,
+but I haven't tested it to see how well it works or not. If you want
+to try, it can be accessed at
+<A HREF="http://www.chzsoft.de/cms/?Downloads:BasicCard:libbasiccard">http://www.chzsoft.de/cms/?Downloads:BasicCard:libbasiccard</A></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><FONT SIZE=3>Make a
+directory somewhere on your Windows box, CD to that directory and
+pull from Github those three projects. You may need to adjust the
+include directories on your machine so that MarleneAdmin and 
+MarleneTerminal can both access the headers and the library of
+MarleneLib.</FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><FONT SIZE=3>Building on Qt
+Creator is fairly simple, build MarleneLib first and then build and
+link MarleneAdmin and MarleneTerminal.</FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><FONT SIZE=4 STYLE="font-size: 16pt">Building
+the BasicCard project</FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><FONT SIZE=3>MarleneCard is
+the BasicCard project. It too has to be built on Windows, but once
+it's build and loaded onto the BasicCard, you're done with using
+Windows in theory. Pull the project from Github and put it somewhere.
+Point the Zeitcontrol IDE to the MarleneCard.zcp, right click on the
+card.zcc entry, select &ldquo;build&rdquo; and it should output that
+it's built. Double click on &ldquo;card.zcc&rdquo;, select Card &rarr;
+Download to real card and follow the prompts.</FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><FONT SIZE=4 STYLE="font-size: 16pt">Building
+the Bridge Server</FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><FONT SIZE=3>The bridge
+server in theory can be built on any platform, but you'll probably
+have the best experience building it on Linux. Make sure that OpenSSL
+is installed &ndash; all the development headers and libraries, make
+sure git is installed and pull the MarleneBridge project from github
+onto your linux box somewhere. Open up the .pro file in Qt Creator,
+and hit build.</FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><FONT SIZE=5 STYLE="font-size: 20pt">Why
+Marlene?</FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><FONT SIZE=3>It's the name
+of my cat. Everything on the internet is cats.</FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><IMG SRC="MarleneCard_html_50f41aa3.jpg" NAME="graphics1" ALIGN=LEFT WIDTH=640 HEIGHT=480 BORDER=0><BR CLEAR=LEFT><BR>
+</P>
+</BODY>
+</HTML>
